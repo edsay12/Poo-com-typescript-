@@ -1,0 +1,205 @@
+/* eslint-disable*/
+/*eslint-disable */
+
+// const idade:number = 0o1001;
+
+// // Representação de um array de numeros e strings 
+// let ArrayDeNumeros:number[] = [1,2,3]
+
+// let ArrayDeString:string[] = ['a','b','b']
+
+// // ? -> Indica que algo e opcional 
+// let pessoa: {nome:string,idade:number,sexo:string,adulto?:boolean} ={
+//   nome: 'edvan',
+//   idade:21,
+//   sexo:'masc',
+//   adulto:true,
+// }
+
+// console.log(pessoa.nome)
+
+// // OU
+
+// type Pessoa = {
+//   nome:string,
+//   idade:number,
+//   sexo:string,
+//   adulto?:boolean
+// }
+
+// let pessoa3:Pessoa ={
+//   nome: 'edvan',
+//   idade:21,
+//   sexo:'masc',
+//   adulto:true
+// }
+ 
+// // Para funçoes e a mesma coisa 
+// // Funçao que retorna um number
+// function soma(x:number,y:number):number{
+//   return x + y 
+// }
+
+// Typo any  -> Any significa qualquer coisa e nao queremos que ele esteja dessa forma
+              // quando tiver any temos que mudar isso.
+
+// typo void -> Diz que uma função ou metodo nao retorna nada   
+
+// function semretorno(...arg:string[]):void{
+//   console.log(arg.join(' '))
+// }
+// semretorno('luiz','1','ooi')
+
+// tipo objeto -> E complicado ksksk(NAo podemos usar {} nem object num objeto )
+
+// modo errado 
+// const object:{} = {
+//   chaveA:'valorA',
+//   chaveB:'valorB'
+// }
+
+//modo correto 
+// const object:{
+//   chaveA:string,
+//   chaveB:string,
+//   [key:string]:unknown // isso permite adicionar outro elemento no array sem problemas 
+// } = {
+//   chaveA:'valorA',
+//   chaveB:'valorB'
+
+// }
+// o objeto tem uma propiedade readyonly
+// const object:{
+//   readonly chaveA:string,
+//   chaveB:string,
+//   [key:string]:unknown // isso permite adicionar outro elemento no objeto sem problemas 
+// } = {
+//   chaveA:'valorA',
+//   chaveB:'valorB'
+
+// tipo array -> Existem duas formas genericas de se criar um array -> 
+//               Array[T] ou T[] onde T representa o tipo 
+
+// tipo never -> quer dizer que a função nunca vai retornar nada ou erros 
+
+// function criaErro():never{
+//     throw new Error('Erro qualquer')
+//   } // Uma funçao que lança um erro ou que pode travar a aplicação.
+
+// tipo Enum -> Usado quando tem mais uma opçao pra uma mesma coisa ex 
+                // o enum enumera os dados entao o vemelho sera 0 eo restante serao numeros 
+                // em ordem crescente 
+// enum Cores {
+//   Vermelho, //0
+//   azul, //1 
+//   amarelo, //2 
+//   roxo = 'Roxo' // roxo 
+// }
+// console.log(Cores) // retorna um objeto meio estranho kk
+// // curiosidade se tiver 2 enums com mesmo nome ele vai dar um merge dos dois ou seja vai unilos 
+
+// tipo unknown -> e uma any mais seguro que so permite usar a variavel criada depois de verificar seu
+// tipo
+
+// let x:unknown
+// x = 100 
+// x = `hello`
+// const r = 10 
+
+// if(typeof x === 'number'){
+
+//   console.log(x + r)
+// }
+
+// union Types -> Parece um enum usando quando se a por exemplo mais d eum retorno numa funçao 
+                  // e definido por |
+                  // ex: 
+
+// function add(a:number| string,b: number | string ){
+//   if(typeof a === 'number' && typeof b ===  'number') return a+b 
+//   if(typeof a === 'string' && typeof b ===  'string') return a+b
+ 
+// }
+
+// console.log(add(10,20))
+
+// tipo literal  -> È e u colocar valores pra um parametro etc. (as const )
+// ex 
+ //const pesso = {
+ //  nome :'edvan' as const  // isso nao muda (o as const vai fazer o valor nunca mudar)
+//}
+// console.log(pesso.nome = 'edvan') // nao e possivel atribuir outro valor alem de edvan ao nome 
+
+// let a:100  = 100 // tipo literal (nesse caso o 100 e um tipo literal)
+
+// // type alias -> Cria um apelido para um tipo 
+// type Pessoa ={
+//   nome:string,
+//   sobrenome:string
+// }
+
+//intersection Type e a intersecção entre 2 conjuntos unem eles 
+// ex
+// usa o operando & 
+
+// type TemNome = {nome:string}
+// type TemSobrenome = {sobrenome:string}
+// type TemIdade = {idade:number}
+
+// type Pessoa1  = TemNome & TemIdade & TemSobrenome
+
+// const pessoa4:Pessoa1 ={
+//   idade:21,
+//   nome:'edsay',
+//   sobrenome:'edvan'
+
+// }
+
+// E possivel tipar funções :) 
+
+// type FunçãoDeCallBack = (item:string) => string; // função tipada
+
+// function mapString(item:string[],callbackfunction:FunçãoDeCallBack){
+//   callbackfunction(item){
+//     return item.toString()
+//   }
+
+// }
+
+// ----------------------- type assertions ---------------------------- 
+//--> São  conversoes de um tipo para outro tipo ex: 
+
+// ! -> e um tipo de assersion que fala que o body nao e nulo
+
+//condicional
+// const body1 = document.querySelector('body') 
+// if(body1) body1.style
+
+// // Non-null assersion (!)
+// const body2 = document.querySelector('body')! 
+// body2.style
+
+// // Type assersion (as)
+// const body3 = document.querySelector('body') as HTMLBodyElement 
+// body3.style
+
+// // Type assertion 
+
+// const body4 = document.querySelector('body') as HTMLBodyElement 
+// body4.style 
+
+
+// -------------- Configurando o webpack -----------------// 
+
+// --> Vai permitir usar o typescript no frontend
+//1-) npm i ts-loader webpack webpack-cli -D 
+// 2-) Criar arquivo webpack.config.js
+//3-) ir na documantação do webpack (webpack typescript) copiar e colar as configs
+4-) executar o webpack -> npx webpack -w 
+
+
+
+
+Aplicaçoes concorrentes 
+
+-> 
