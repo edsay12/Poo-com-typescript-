@@ -1,0 +1,1 @@
+console.log(array.filter((value) => value < 5));
